@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<main>
+    <div th:each="age: ${ages}">
+        <span th:text="${age.name}" class="name"></span>
+        <ul>
+            <li th:text="|Count: ${age.count}|"></li>
+            <li th:text="|Age: ${age.age}|"></li>
+        </ul>
+    </div>
+</main>
+</body>
+</html>
+
