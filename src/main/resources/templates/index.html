@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Spring Reactive</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.css}"/>
+</head>
+<body>
+<main>
+    <div class="card">
+        <h5 class="card-header">Average age of a person according to his/her name</h5>
+        <div class="card-body card__center">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Count</th>
+                    <th>Age</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-th-each="age: ${ages}">
+                    <td th:text="${age.name}"></td>
+                    <td th:text="${age.count}"></td>
+                    <td th:text="|${age.age} years|"></td>
+                </tr>
+                </tbody>
+            </table>
+<!--            <div th:if="${isLoading}" class="spinner-border" role="status"></div>-->
+        </div>
+    </div>
+</main>
+</body>
+</html>
+

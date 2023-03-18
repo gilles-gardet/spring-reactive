@@ -1,0 +1,27 @@
+server:
+  port: 8080
+logging.level:
+  org.springframework.data.r2dbc: debug
+database:
+  name: database
+  host: 127.0.0.1
+  port: 5432
+  username: user
+  password: password
+spring:
+  r2dbc:
+    url: r2dbc:postgresql:////${database.host}:${database.port}/${database.name}
+    username: ${database.username}
+    password: ${database.password}
+  liquibase:
+    change-log: classpath:/db/db.changelog.yaml
+    url: jdbc:postgresql://${database.host}:${database.port}/${database.name}
+    user: ${database.username}
+    password: ${database.password}
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    encoding: UTF-8
+    reactive:
+      max-chunk-size: 1024
